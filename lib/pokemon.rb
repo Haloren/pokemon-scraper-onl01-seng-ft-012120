@@ -19,16 +19,9 @@ class Pokemon
   end   
 
   def self.find(id, db)
-    #find pokemon by id then return a new object
-    sql = <<-SQL
-            SELECT *
-            FROM pokemon
-            WHERE id = ?
-        SQL
-        
-        x = db.execute(sql, id).map do |row|
-            self.new_from_db(row, db)
-        end.first
+    #find pokemon by id then return a new pokemon as an object
+    found_pokemon = db.execute("SELECT * FROM pokemon WHERE id = ?;", id)
+    binding.pry 
   end   
 
 
