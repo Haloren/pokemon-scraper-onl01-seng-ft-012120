@@ -19,6 +19,7 @@ class Pokemon
   end   
 
   def self.find(id, db)
+    #find pokemon by id then return a new object
     sql = <<-SQL
             SELECT *
             FROM pokemon
